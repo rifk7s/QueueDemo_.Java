@@ -1,18 +1,75 @@
-## Getting Started
+# Queue Implementation Demo (Work In Progress)
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+> ⚠️ **Note**: Project ini masih dalam tahap pengembangan (Work In Progress). Beberapa fitur mungkin belum lengkap atau dapat berubah.
 
-## Folder Structure
+Implementasi struktur data Queue (Antrian) menggunakan Java. Project ini mencakup implementasi dasar Queue dengan operasi enqueue, dequeue, dan peek.
 
-The workspace contains two folders by default, where:
+## 📝 Deskripsi
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
+Project ini berisi implementasi dari:
+- Queue (Antrian) menggunakan array
+- Operasi dasar antrian (enqueue, dequeue, peek)
+- Penanganan kondisi antrian penuh dan kosong
 
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
+## 🚀 Instalasi
 
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
+### Menggunakan Terminal
 
-## Dependency Management
+1. Clone repository ini:
+   ```bash
+   git clone https://github.com/rifk7s/QueueDemo_.Java.git
+   cd QueueDemo_.Java
+   ```
 
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+2. Compile project:
+   ```bash
+   javac src/*.java
+   ```
+
+3. Jalankan aplikasi:
+   ```bash
+   java -cp src QueueDemoC
+   ```
+
+### Menggunakan VS Code
+
+1. Clone repository ini ke komputer Anda
+2. Buka folder project di VS Code
+3. Pastikan Extension Pack for Java sudah terinstall
+4. Klik tombol Run (▶️) di file QueueDemo.java
+
+## 📁 Struktur Folder
+
+```
+QueueDemo_.Java/
+├── src/
+│   ├── QueueDemo.java    # Implementasi Queue
+│   └── *.java           # File Java lainnya
+├── LICENSE              # BSD 3-Clause License
+└── README.md           # Dokumentasi project
+```
+
+## 📚 Penggunaan
+
+```java
+// Membuat queue baru dengan kapasitas 10
+QueueDemo queue = new QueueDemo(10);
+
+// Menambah elemen
+queue.enqueue(10);
+queue.enqueue(20);
+
+// Mengambil elemen
+int value = queue.dequeue();
+
+// Melihat elemen terdepan
+int front = queue.peek();
+```
+
+## 📄 Lisensi
+
+Project ini dilindungi oleh [BSD 3-Clause License](LICENSE).
+
+## 👨‍💻 Author
+
+- [rifk7s](https://github.com/rifk7s)
