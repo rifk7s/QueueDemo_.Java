@@ -4,7 +4,12 @@
  */
 public class DataStructuresDemo {
     public static void main(String[] args) {
-        // Demonstrate Queue
+        testQueue();
+        testHashTable();
+        testBinaryTree();
+    }
+    
+    private static void testQueue() {
         System.out.println("=== Queue Demo ===");
         Queue queue = new Queue(10);
         queue.enqueue(10);
@@ -13,18 +18,23 @@ public class DataStructuresDemo {
         System.out.println("Front element: " + queue.peek());
         System.out.println("Dequeued: " + queue.dequeue());
         System.out.println("Front element after dequeue: " + queue.peek());
-        
-        // Demonstrate Hash Table
+        System.out.println("Queue is empty: " + queue.isEmpty());
+        System.out.println("Queue is full: " + queue.isFull());
+    }
+    
+    private static void testHashTable() {
         System.out.println("\n=== Hash Table Demo ===");
         HashTable table = new HashTable(5);
         table.insert(1, "Task One");
         table.insert(6, "Task Six");
         table.insert(11, "Task Eleven");
+        System.out.println("Search key 1: " + table.search(1));
         System.out.println("Search key 6: " + table.search(6));
         System.out.println("Search key 11: " + table.search(11));
         System.out.println("Search key 3: " + table.search(3));
-        
-        // Demonstrate Binary Tree
+    }
+    
+    private static void testBinaryTree() {
         System.out.println("\n=== Binary Tree Demo ===");
         BinaryTree tree = new BinaryTree();
         tree.insert(50);
