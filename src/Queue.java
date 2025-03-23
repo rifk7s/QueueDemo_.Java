@@ -1,22 +1,30 @@
-public class QueueDemo {
+/**
+ * Queue implementation using a circular buffer approach.
+ */
+public class Queue {
     private int[] elements;
     private int front;
     private int rear;
     private int capacity;
+    private int size;  // Track current size
     
-    public QueueDemo(int capacity) {
+    public Queue(int capacity) {
         this.capacity = capacity;
         elements = new int[capacity];
         front = 0;
         rear = -1;
+        size = 0;
     }
     
     public void enqueue(int value) {
-        if (rear == capacity - 1) {
+        if (size == capacity) {
             System.out.println("Queue is full. Cannot enqueue " + value);
             return;
         }
-        elements[++rear] = value;
+        // Circular increment of rear
+        rear = (rear + 1) % capacity;
+        elements[rear] = value;
+        size++;
     }
     
     public int dequeue() {
@@ -24,33 +32,26 @@ public class QueueDemo {
             System.out.println("Queue is empty. Cannot dequeue.");
             return -1;
         }
-        return elements[front++];
+        int value = elements[front];
+        // Circular increment of front
+        front = (front + 1) % capacity;
+        size--;
+        return value;
     }
     
     public int peek() {
         if (isEmpty()) {
             System.out.println("Queue is empty.");
-            return -1;
+            return -1; 
         }
         return elements[front];
     }
     
     public boolean isEmpty() {
-        return front > rear;
+        return size == 0;
     }
-}
-
-class QueueDemoC {
-    public static void main(String[] args) {
-        QueueDemo queue = new QueueDemo(10);
-        
-        // Test the queue operations
-        queue.enqueue(10);
-        queue.enqueue(20);
-        queue.enqueue(30);
-        System.out.println("Front element: " + queue.peek()); // Expected: 10
-        
-        System.out.println("Dequeued: " + queue.dequeue()); // Expected: 10
-        System.out.println("Front element after dequeue: " + queue.peek()); // Expected: 20
+    
+    public boolean isFull() {
+        return size == capacity;
     }
 }
